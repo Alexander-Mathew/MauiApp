@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoApp.Views.DetailView"
+             Title="Detail">
+    <Grid
+        RowDefinitions="Auto,30,30,*"
+        RowSpacing="10"
+        Margin="15,50,15,20">
+        <Image
+            VerticalOptions="Start"
+            Source="{Binding UserDetail.Avatar}" Aspect="AspectFit">
+            <Image.Clip>
+                <EllipseGeometry Center="200,60" RadiusX="60" RadiusY="60"/>
+            </Image.Clip>
+        </Image>
+        <Label
+           Grid.Row="1"
+            HorizontalTextAlignment="Center"
+           FontAttributes="Bold"
+           TextColor="Black"
+           FontSize="18"
+           Text="{Binding UserDetail.FullName}"/>
+        <Label
+            HorizontalTextAlignment="Center"
+            Grid.Row="2"
+           Text="{Binding UserDetail.Email}"/>
+
+        <Button
+            Grid.Row="3"
+            Text="Update"
+            VerticalOptions="EndAndExpand"
+            Command="{Binding UpdateCommand}"/>
+
+
+    </Grid>
+</ContentPage>

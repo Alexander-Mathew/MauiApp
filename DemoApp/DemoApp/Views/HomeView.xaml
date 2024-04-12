@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoApp.Views.HomeView"
+             Title="Home"
+             >
+    <StackLayout
+        VerticalOptions="FillAndExpand"
+        Margin="0,20">
+        <ListView
+            x:Name="userList"
+            ItemsSource="{Binding Users}"            
+            RowHeight="60">
+            <ListView.ItemTemplate>             
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid
+                            Padding="20,10"
+                            RowSpacing="5"
+                            ColumnSpacing="10"
+                            RowDefinitions="20,20"
+                            ColumnDefinitions="60,*">
+                            <Image
+                                Margin="0,-40,0,0"
+                                Grid.RowSpan="2"
+                                VerticalOptions="Start"
+                                Source="{Binding Avatar}" Aspect="AspectFit">
+                                <Image.Clip>
+                                    <EllipseGeometry Center="30,60" RadiusX="25" RadiusY="25"/>
+                                </Image.Clip>
+                            </Image>
+                            <Label
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                TextColor="Black"
+                                FontSize="18"
+                                Text="{Binding FullName}"/>
+                             <Label
+                                 Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{Binding Email}"/>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Path=BindingContext.DetailCommand, Source={x:Reference userList}}"
+                                    CommandParameter="{Binding .}"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+
+        </ListView>
+        </StackLayout>
+</ContentPage>

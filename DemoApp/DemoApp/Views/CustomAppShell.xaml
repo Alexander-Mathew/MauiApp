@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="DemoApp.Views.CustomAppShell"
+       xmlns:local="clr-namespace:DemoApp.Views"
+       Shell.FlyoutBehavior="Flyout"
+       Title="CustomAppShell">
+
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout HeightRequest="200">
+            <Image
+                Source="dotnet_bot.png"
+                WidthRequest="100"/>
+            <Label
+                Text="Demo App"
+                HorizontalTextAlignment="Center"/>
+
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+    <VerticalStackLayout>
+        
+        <Label
+                Text="Version 1.0"
+            VerticalTextAlignment="End"
+                HorizontalTextAlignment="Center"/>
+
+    </VerticalStackLayout>
+        </Shell.FlyoutFooter>
+
+
+    <FlyoutItem Title="Home" >
+       <Tab>
+           <ShellContent ContentTemplate="{DataTemplate local:HomeView}" />
+       </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Profile">
+       <Tab>
+           <ShellContent ContentTemplate="{DataTemplate local:ProfileView}" />
+       </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Logout">
+       <Tab>
+           <ShellContent ContentTemplate="{DataTemplate local:LogoutView}" />
+       </Tab>
+    </FlyoutItem>
+</Shell>
